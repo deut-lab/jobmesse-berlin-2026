@@ -1,4 +1,4 @@
-# Dmytro Grynchenko - jobmesse berlin 2026
+# Dmitri Grynchenko - jobmesse berlin 2026
 
 Temporary profile page and A6 print card for jobmesse berlin, 31 May 2026.
 
