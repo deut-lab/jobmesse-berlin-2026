@@ -1,6 +1,5 @@
 .chrome-pdf-*
 .chrome-pdf-profile*
 assets/screenshot-*.png
-assets/
 print/
 *.pdf

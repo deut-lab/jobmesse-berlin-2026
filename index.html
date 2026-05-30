@@ -1,106 +1,859 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Dmitri Grynchenko - Business Process & Implementation Specialist. Temporary profile page for jobmesse berlin."
+      content="Dmitri Grynchenko - KI-Automatisierung, Prozessdigitalisierung und praktische Automatisierung fuer kleine und mittlere Unternehmen."
     />
-    <title>Dmitri Grynchenko</title>
+    <meta property="og:title" content="Dmitri Grynchenko | KI-Automatisierung" />
+    <meta
+      property="og:description"
+      content="Manuelle Arbeit, Datenchaos und alte Ablaeufe in klare digitale Workflows verwandeln."
+    />
+    <meta property="og:image" content="assets/hero-automation.png" />
+    <title>Dmitri Grynchenko | KI-Automatisierung</title>
     <style>
       :root {
+        --bg: #f7f8f6;
+        --paper: #ffffff;
+        --ink: #101513;
+        --muted: #5b6761;
+        --line: #dce4df;
+        --deep: #06493f;
+        --deep-2: #0f6d5e;
+        --gold: #d99a16;
+        --soft: #eaf2ee;
+        --shadow: 0 24px 70px rgba(16, 21, 19, 0.11);
         color-scheme: light;
         font-family: Arial, Helvetica, sans-serif;
-        background: #fff;
-        color: #111;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 28px;
-        background: #fff;
-      }
-
-      main {
-        width: min(760px, 100%);
-        border: 1px solid #111;
-        padding: clamp(24px, 6vw, 48px);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(34px, 7vw, 64px);
-        line-height: 1;
-        letter-spacing: 0;
-      }
-
-      h2 {
-        margin: 18px 0 0;
-        font-size: clamp(20px, 4vw, 30px);
-        line-height: 1.15;
-        font-weight: 700;
-      }
-
-      p {
-        margin: 18px 0 0;
-        max-width: 620px;
-        font-size: 18px;
-        line-height: 1.45;
-      }
-
-      ul {
-        margin: 24px 0 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 10px;
-        font-size: 17px;
-      }
-
-      li::before {
-        content: "- ";
-      }
-
-      .contact {
-        margin-top: 34px;
-        padding-top: 22px;
-        border-top: 1px solid #111;
-        display: grid;
-        gap: 8px;
-        font-size: 17px;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
       }
 
       a {
-        color: #111;
+        color: inherit;
+      }
+
+      .top {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(247, 248, 246, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .top-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav {
+        display: flex;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .nav a {
+        text-decoration: none;
+      }
+
+      .nav a:hover {
+        color: var(--deep);
+      }
+
+      .lang-switch {
+        display: inline-flex;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--paper);
+        padding: 3px;
+      }
+
+      .lang-btn {
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        min-width: 38px;
+        padding: 6px 10px;
+      }
+
+      .lang-btn.is-active {
+        background: var(--deep);
+        color: #fff;
+      }
+
+      .wrap {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 58px 0 44px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+        gap: 44px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(46px, 7vw, 82px);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .role {
+        margin: 20px 0 0;
+        color: var(--deep);
+        font-size: clamp(25px, 3.4vw, 38px);
+        line-height: 1.08;
+        font-weight: 800;
+      }
+
+      .lead {
+        margin: 24px 0 0;
+        max-width: 650px;
+        color: var(--muted);
+        font-size: 20px;
+      }
+
+      .cta-row {
+        margin-top: 34px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--deep);
+        border-radius: 8px;
+        padding: 0 18px;
+        background: var(--deep);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .button.alt {
+        background: transparent;
+        color: var(--deep);
+      }
+
+      .visual {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .visual img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .promise {
+        margin-top: 36px;
+        border-left: 5px solid var(--gold);
+        background: var(--paper);
+        box-shadow: 0 12px 34px rgba(16, 21, 19, 0.07);
+        padding: 22px 26px;
+        display: grid;
+        gap: 8px;
+        max-width: 860px;
+      }
+
+      .promise strong {
+        font-size: clamp(24px, 4vw, 35px);
+        line-height: 1.05;
+      }
+
+      .promise span {
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      section {
+        border-top: 1px solid var(--line);
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .section h2 {
+        margin: 0;
+        font-size: clamp(32px, 4.5vw, 54px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: end;
+        margin-bottom: 30px;
+      }
+
+      .section-head p {
+        margin: 0;
+        max-width: 460px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .card {
+        min-height: 180px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 18px;
+        background: var(--paper);
+        display: grid;
+        align-content: space-between;
+        gap: 18px;
+      }
+
+      .card b {
+        display: block;
+        font-size: 18px;
+        line-height: 1.15;
+      }
+
+      .card span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--deep);
+        box-shadow: 26px 0 0 var(--gold), 52px 0 0 var(--line);
+      }
+
+      .proof {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .proof .section-head p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .proof-item {
+        background: var(--ink);
+        padding: 24px;
+      }
+
+      .proof-item strong {
+        display: block;
+        color: #fff;
+        font-size: clamp(30px, 4vw, 45px);
+        line-height: 1;
+      }
+
+      .proof-item span {
+        display: block;
+        margin-top: 12px;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .process {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      .steps {
+        display: grid;
+        gap: 12px;
+        counter-reset: step;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        gap: 16px;
+        align-items: start;
+        border-bottom: 1px solid var(--line);
+        padding: 0 0 18px;
+      }
+
+      .step::before {
+        counter-increment: step;
+        content: counter(step);
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--soft);
+        color: var(--deep);
+        font-weight: 800;
+      }
+
+      .step b {
+        display: block;
+        font-size: 20px;
+      }
+
+      .step span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+      }
+
+      .contact-block {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 270px;
+        gap: 30px;
+        align-items: stretch;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--paper);
+        overflow: hidden;
+      }
+
+      .contact-main {
+        padding: 32px;
+      }
+
+      .contact-main h2 {
+        margin-bottom: 18px;
+      }
+
+      .contact-links {
+        display: grid;
+        gap: 11px;
+        margin-top: 24px;
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .contact-links a {
+        text-decoration: none;
+      }
+
+      .contact-side {
+        background: var(--soft);
+        padding: 28px;
+        display: grid;
+        align-content: center;
+        gap: 12px;
+      }
+
+      .contact-side strong {
+        font-size: 18px;
+      }
+
+      .contact-side span {
+        color: var(--muted);
+      }
+
+      .english {
+        background: #fff;
+      }
+
+      .english-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .english-box p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .footer {
+        padding: 30px 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .process,
+        .contact-block,
+        .english-box {
+          grid-template-columns: 1fr;
+        }
+
+        .cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .proof-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .visual {
+          max-width: 720px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .top-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .top-actions {
+          width: 100%;
+          justify-content: space-between;
+          gap: 12px;
+        }
+
+        .nav {
+          flex: 1;
+          overflow-x: auto;
+          padding-bottom: 2px;
+        }
+
+        .wrap {
+          width: min(100% - 32px, 1180px);
+        }
+
+        .hero {
+          padding-top: 42px;
+        }
+
+        .hero h1 {
+          font-size: 44px;
+          line-height: 1.03;
+        }
+
+        .role {
+          font-size: 25px;
+          line-height: 1.12;
+        }
+
+        .lead {
+          font-size: 19px;
+        }
+
+        .button {
+          max-width: 100%;
+          min-height: 46px;
+          padding: 0 16px;
+          text-align: left;
+          white-space: normal;
+        }
+
+        .cards,
+        .proof-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head {
+          display: grid;
+          align-items: start;
+        }
+
+        .promise {
+          padding: 18px;
+        }
+
+        .contact-main,
+        .contact-side {
+          padding: 22px;
+        }
+
+        .contact-links {
+          font-size: 19px;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>Dmitri Grynchenko</h1>
-      <h2>Business Process & Implementation Specialist</h2>
-      <p>
-        This temporary profile page is being prepared for jobmesse berlin, 31 May 2026. A short profile,
-        printable card and QR contact page will be added here.
-      </p>
-      <ul>
-        <li>Process improvement</li>
-        <li>CRM, ERP and CMS implementation</li>
-        <li>Operations and e-commerce workflows</li>
-        <li>Reporting, data quality and practical automation</li>
-      </ul>
-      <div class="contact">
-        <a href="mailto:deutjob@gmail.com">deutjob@gmail.com</a>
-        <a href="tel:+4915116524163">+49 151 165 24 163</a>
+    <header class="top">
+      <div class="top-inner">
+        <div class="brand">Dmitri Grynchenko</div>
+        <div class="top-actions">
+          <nav class="nav" aria-label="Hauptnavigation">
+            <a href="#leistung" data-i18n="nav.service">Leistung</a>
+            <a href="#belege" data-i18n="nav.proof">Belege</a>
+            <a href="#start" data-i18n="nav.start">Start</a>
+            <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button class="lang-btn is-active" type="button" data-lang="de" aria-pressed="true">DE</button>
+            <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+        </div>
       </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <h1 data-i18n="hero.title">KI-Automatisierung für echte Geschäftsarbeit.</h1>
+            <p class="role" data-i18n="hero.role">Ich bringe manuelle Arbeit, Datenchaos und alte Abläufe in klare digitale Workflows.</p>
+            <p class="lead" data-i18n="hero.lead">Für kleine und mittlere Unternehmen, die Aufgaben seit Monaten aufschieben: Daten sortieren, Prozesse digitalisieren, CRM/Excel/Sheets verbessern und KI praktisch nutzbar machen.</p>
+            <div class="cta-row">
+              <a class="button" data-i18n="hero.mail" href="mailto:deutjob@gmail.com?subject=Projekt%20fuer%20Dmitri%20Grynchenko">Projekt senden</a>
+              <a class="button alt" href="tel:+4915116524163">WhatsApp / Telegram: +49 151 165 24 163</a>
+            </div>
+            <div class="promise">
+              <strong data-i18n="hero.promiseTitle">Ein Projekt, das Sie aufschieben?</strong>
+              <span data-i18n="hero.promiseText">Beginnen wir mit einem kostenlosen Probeauftrag. Erst das Ergebnis - dann der Vertrag. Ganz ohne Risiko für Sie!</span>
+            </div>
+          </div>
+          <figure class="visual">
+            <img
+              src="assets/hero-automation.png"
+              data-i18n-alt="hero.imageAlt"
+              alt="Aus verstreuten Daten und Dokumenten entsteht ein klarer digitaler Workflow mit KI-Unterstuetzung."
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="leistung">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 data-i18n="work.title">Was ich kann</h2>
+            <p data-i18n="work.note">Kurze, praktische Projekte. Keine Theorie. Erst ein sichtbares Ergebnis.</p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <div class="dot"></div>
+              <b data-i18n="card.manualTitle">Manuelle Arbeit automatisieren</b>
+              <span data-i18n="card.manualText">Wiederholbare Aufgaben, Eingaben, Listen, Berichte.</span>
+            </article>
+            <article class="card">
+              <div class="dot"></div>
+              <b data-i18n="card.dataTitle">Archive & Datenbanken strukturieren</b>
+              <span data-i18n="card.dataText">Verstreute digitale Daten in nutzbare Ordnung bringen.</span>
+            </article>
+            <article class="card">
+              <div class="dot"></div>
+              <b data-i18n="card.aiTitle">KI-Workflows aufbauen</b>
+              <span data-i18n="card.aiText">KI als Werkzeug im echten Arbeitsablauf, nicht als Demo.</span>
+            </article>
+            <article class="card">
+              <div class="dot"></div>
+              <b data-i18n="card.crmTitle">CRM, Excel, Sheets verbessern</b>
+              <span data-i18n="card.crmText">Regeln, Datenqualität, Auswertungen, Übergaben.</span>
+            </article>
+            <article class="card">
+              <div class="dot"></div>
+              <b data-i18n="card.processTitle">Prozesse digitalisieren</b>
+              <span data-i18n="card.processText">Vom alten Ablauf zum klaren, prüfbaren Prozess.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section proof" id="belege">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 data-i18n="proof.title">Warum ich nützlich bin</h2>
+            <p data-i18n="proof.note">Ich komme aus Betrieb, Vertrieb, E-Commerce, Daten und Automatisierung. Ich denke nicht nur technisch.</p>
+          </div>
+          <div class="proof-grid">
+            <div class="proof-item">
+              <strong>25+</strong>
+              <span data-i18n="proof.years">Jahre Erfahrung in Operations, Vertrieb, E-Commerce und digitalen Systemen.</span>
+            </div>
+            <div class="proof-item">
+              <strong>$8-10M</strong>
+              <span data-i18n="proof.revenue">Umsatz aus ca. $200k Ausgangsbasis aufgebaut.</span>
+            </div>
+            <div class="proof-item">
+              <strong>600+ / 43k+</strong>
+              <span data-i18n="proof.clients">B2B- und B2C-Kundenbasis in einem Omnichannel-Commerce-System.</span>
+            </div>
+            <div class="proof-item">
+              <strong>40+</strong>
+              <span data-i18n="proof.companies">Unternehmen mit Prozess-, System- und Digitalisierungsfragen unterstützt.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="start">
+        <div class="wrap process">
+          <div>
+            <h2 data-i18n="start.title">So starten wir</h2>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div>
+                <b data-i18n="start.step1Title">Sie schicken ein echtes Projekt.</b>
+                <span data-i18n="start.step1Text">Eine Aufgabe, die Zeit frisst oder lange liegen bleibt.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <b data-i18n="start.step2Title">Ich prüfe den ersten Teil kostenlos.</b>
+                <span data-i18n="start.step2Text">Was ist möglich, welche Daten fehlen, welcher Ablauf passt.</span>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <b data-i18n="start.step3Title">Sie sehen ein erstes Ergebnis.</b>
+                <span data-i18n="start.step3Text">Danach entscheiden wir über Vertrag oder weitere Zusammenarbeit.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kontakt">
+        <div class="wrap contact-block">
+          <div class="contact-main">
+            <h2 data-i18n="contact.title">Kontakt</h2>
+            <p class="lead" data-i18n="contact.note">Bitte schriftlich oder per Sprachnachricht. Deutsch B1; schriftlich kann ich Dokumente, Aufgaben und Details sauber übersetzen und bearbeiten.</p>
+            <div class="contact-links">
+              <a href="mailto:deutjob@gmail.com">deutjob@gmail.com</a>
+              <a href="tel:+4915116524163">+49 151 165 24 163</a>
+            </div>
+          </div>
+          <aside class="contact-side">
+            <strong data-i18n="contact.place">Schwerin, Deutschland</strong>
+            <span data-i18n="contact.work">Remote / hybrid möglich</span>
+            <span>WhatsApp · Telegram · E-Mail</span>
+          </aside>
+        </div>
+      </section>
     </main>
+
+    <footer class="footer">
+      <div class="wrap" data-i18n="footer">Dmitri Grynchenko · KI-Automatisierung & Prozessdigitalisierung · jobmesse berlin 2026</div>
+    </footer>
+    <script>
+      (() => {
+        const text = {
+          de: {
+            metaTitle: "Dmitri Grynchenko | KI-Automatisierung",
+            metaDescription:
+              "Dmitri Grynchenko - KI-Automatisierung, Prozessdigitalisierung und praktische Automatisierung fuer kleine und mittlere Unternehmen.",
+            mailSubject: "Projekt fuer Dmitri Grynchenko",
+            navLabel: "Hauptnavigation",
+            "nav.service": "Leistung",
+            "nav.proof": "Belege",
+            "nav.start": "Start",
+            "nav.contact": "Kontakt",
+            "hero.title": "KI-Automatisierung für echte Geschäftsarbeit.",
+            "hero.role": "Ich bringe manuelle Arbeit, Datenchaos und alte Abläufe in klare digitale Workflows.",
+            "hero.lead":
+              "Für kleine und mittlere Unternehmen, die Aufgaben seit Monaten aufschieben: Daten sortieren, Prozesse digitalisieren, CRM/Excel/Sheets verbessern und KI praktisch nutzbar machen.",
+            "hero.mail": "Projekt senden",
+            "hero.promiseTitle": "Ein Projekt, das Sie aufschieben?",
+            "hero.promiseText":
+              "Beginnen wir mit einem kostenlosen Probeauftrag. Erst das Ergebnis - dann der Vertrag. Ganz ohne Risiko für Sie!",
+            "hero.imageAlt":
+              "Aus verstreuten Daten und Dokumenten entsteht ein klarer digitaler Workflow mit KI-Unterstuetzung.",
+            "work.title": "Was ich kann",
+            "work.note": "Kurze, praktische Projekte. Keine Theorie. Erst ein sichtbares Ergebnis.",
+            "card.manualTitle": "Manuelle Arbeit automatisieren",
+            "card.manualText": "Wiederholbare Aufgaben, Eingaben, Listen, Berichte.",
+            "card.dataTitle": "Archive & Datenbanken strukturieren",
+            "card.dataText": "Verstreute digitale Daten in nutzbare Ordnung bringen.",
+            "card.aiTitle": "KI-Workflows aufbauen",
+            "card.aiText": "KI als Werkzeug im echten Arbeitsablauf, nicht als Demo.",
+            "card.crmTitle": "CRM, Excel, Sheets verbessern",
+            "card.crmText": "Regeln, Datenqualität, Auswertungen, Übergaben.",
+            "card.processTitle": "Prozesse digitalisieren",
+            "card.processText": "Vom alten Ablauf zum klaren, prüfbaren Prozess.",
+            "proof.title": "Warum ich nützlich bin",
+            "proof.note":
+              "Ich komme aus Betrieb, Vertrieb, E-Commerce, Daten und Automatisierung. Ich denke nicht nur technisch.",
+            "proof.years": "Jahre Erfahrung in Operations, Vertrieb, E-Commerce und digitalen Systemen.",
+            "proof.revenue": "Umsatz aus ca. $200k Ausgangsbasis aufgebaut.",
+            "proof.clients": "B2B- und B2C-Kundenbasis in einem Omnichannel-Commerce-System.",
+            "proof.companies": "Unternehmen mit Prozess-, System- und Digitalisierungsfragen unterstützt.",
+            "start.title": "So starten wir",
+            "start.step1Title": "Sie schicken ein echtes Projekt.",
+            "start.step1Text": "Eine Aufgabe, die Zeit frisst oder lange liegen bleibt.",
+            "start.step2Title": "Ich prüfe den ersten Teil kostenlos.",
+            "start.step2Text": "Was ist möglich, welche Daten fehlen, welcher Ablauf passt.",
+            "start.step3Title": "Sie sehen ein erstes Ergebnis.",
+            "start.step3Text": "Danach entscheiden wir über Vertrag oder weitere Zusammenarbeit.",
+            "contact.title": "Kontakt",
+            "contact.note":
+              "Bitte schriftlich oder per Sprachnachricht. Deutsch B1; schriftlich kann ich Dokumente, Aufgaben und Details sauber übersetzen und bearbeiten.",
+            "contact.place": "Schwerin, Deutschland",
+            "contact.work": "Remote / hybrid möglich",
+            footer: "Dmitri Grynchenko · KI-Automatisierung & Prozessdigitalisierung · jobmesse berlin 2026",
+          },
+          en: {
+            metaTitle: "Dmitri Grynchenko | AI Automation",
+            metaDescription:
+              "Dmitri Grynchenko - AI automation, process digitization and practical workflow automation for small and mid-sized companies.",
+            mailSubject: "Project for Dmitri Grynchenko",
+            navLabel: "Main navigation",
+            "nav.service": "Services",
+            "nav.proof": "Proof",
+            "nav.start": "Start",
+            "nav.contact": "Contact",
+            "hero.title": "AI automation for real business work.",
+            "hero.role": "I turn manual work, data chaos and old routines into clear digital workflows.",
+            "hero.lead":
+              "For small and mid-sized companies that postpone useful work for months: structure data, digitize processes, improve CRM/Excel/Sheets and make AI practical.",
+            "hero.mail": "Send project",
+            "hero.promiseTitle": "A project you keep postponing?",
+            "hero.promiseText":
+              "Let us begin with the first part for free. First the result - then the contract. No risk for you.",
+            "hero.imageAlt":
+              "Scattered data and documents become a clear digital workflow with AI support.",
+            "work.title": "What I can do",
+            "work.note": "Short practical projects. No theory. First a visible result.",
+            "card.manualTitle": "Automate manual work",
+            "card.manualText": "Repeat tasks, inputs, lists and reports.",
+            "card.dataTitle": "Structure archives & databases",
+            "card.dataText": "Turn scattered digital data into usable order.",
+            "card.aiTitle": "Build AI workflows",
+            "card.aiText": "AI as a tool in real work, not as a demo.",
+            "card.crmTitle": "Improve CRM, Excel, Sheets",
+            "card.crmText": "Rules, data quality, reports and handovers.",
+            "card.processTitle": "Digitize processes",
+            "card.processText": "From an old routine to a clear, checkable process.",
+            "proof.title": "Why I am useful",
+            "proof.note":
+              "I come from operations, sales, e-commerce, data and automation. I do not think only technically.",
+            "proof.years": "Years of experience in operations, sales, e-commerce and digital systems.",
+            "proof.revenue": "Revenue built from about a $200k starting point.",
+            "proof.clients": "B2B and B2C customer base in an omnichannel commerce system.",
+            "proof.companies": "Companies supported with process, system and digitization questions.",
+            "start.title": "How we start",
+            "start.step1Title": "You send a real project.",
+            "start.step1Text": "A task that takes time or stays postponed for too long.",
+            "start.step2Title": "I check the first part for free.",
+            "start.step2Text": "What is possible, which data is missing, which workflow fits.",
+            "start.step3Title": "You see a first result.",
+            "start.step3Text": "After that we decide on a contract or further cooperation.",
+            "contact.title": "Contact",
+            "contact.note":
+              "Please write or send a voice message. German B1; in writing I can translate and process documents, tasks and details cleanly.",
+            "contact.place": "Schwerin, Germany",
+            "contact.work": "Remote / hybrid possible",
+            footer: "Dmitri Grynchenko · AI Automation & Process Digitization · jobmesse berlin 2026",
+          },
+        };
+
+        const nodes = document.querySelectorAll("[data-i18n]");
+        const altNodes = document.querySelectorAll("[data-i18n-alt]");
+        const buttons = document.querySelectorAll("[data-lang]");
+        const nav = document.querySelector(".nav");
+        const metaDescription = document.querySelector('meta[name="description"]');
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        const ogDescription = document.querySelector('meta[property="og:description"]');
+        const mailButton = document.querySelector('[data-i18n="hero.mail"]');
+
+        const setLanguage = (lang) => {
+          const dict = text[lang] || text.de;
+          document.documentElement.lang = lang;
+          document.title = dict.metaTitle;
+          if (metaDescription) metaDescription.content = dict.metaDescription;
+          if (ogTitle) ogTitle.content = dict.metaTitle;
+          if (ogDescription) ogDescription.content = dict.metaDescription;
+          if (nav) nav.setAttribute("aria-label", dict.navLabel);
+          if (mailButton) {
+            mailButton.href = `mailto:deutjob@gmail.com?subject=${encodeURIComponent(dict.mailSubject)}`;
+          }
+
+          nodes.forEach((node) => {
+            const value = dict[node.dataset.i18n];
+            if (value) node.textContent = value;
+          });
+
+          altNodes.forEach((node) => {
+            const value = dict[node.dataset.i18nAlt];
+            if (value) node.setAttribute("alt", value);
+          });
+
+          buttons.forEach((button) => {
+            const isActive = button.dataset.lang === lang;
+            button.classList.toggle("is-active", isActive);
+            button.setAttribute("aria-pressed", String(isActive));
+          });
+
+          localStorage.setItem("siteLanguage", lang);
+          const url = new URL(window.location.href);
+          url.searchParams.set("lang", lang);
+          window.history.replaceState({}, "", url);
+        };
+
+        const langFromUrl = new URLSearchParams(window.location.search).get("lang");
+        const startLang = text[langFromUrl] ? langFromUrl : localStorage.getItem("siteLanguage") || "de";
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => setLanguage(button.dataset.lang));
+        });
+
+        setLanguage(startLang);
+      })();
+    </script>
   </body>
 </html>
